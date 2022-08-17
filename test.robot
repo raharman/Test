@@ -10,7 +10,7 @@ ${category}    Notebooky
 Go to store
     Open Browser    ${url}    ${browser}
     Click Element   xpath=//a[normalize-space()="Rozumiem"]
-    maximize browser window
+    #maximize browser window
 
 Cart Keyword 1
     Log  Payment is available
@@ -34,11 +34,13 @@ Valid Interaction
 
     # second product
     Go Back
+    Wait until element is visible    xpath=(//a[@class='btnk1'][contains(text(),'Kúpiť')])[2]
     Click Element    xpath=(//a[@class='btnk1'][contains(text(),'Kúpiť')])[2]
     Sleep    1
 
     # third product
     Go back
+    Wait until element is visible    xpath=(//a[@class='btnk1'][contains(text(),'Kúpiť')])[3]
     Click Element    xpath=(//a[@class='btnk1'][contains(text(),'Kúpiť')])[3]
     Sleep    1
     
@@ -56,8 +58,6 @@ Valid Interaction
 
     Close Browser
 
-
-
 Valid Product Search
     # init
     Go to store
@@ -65,7 +65,9 @@ Valid Product Search
     # search for the product
     Input Text    id=edtSearch    Samsung
     Click Element   id=btnSearch
-    Log    "Search was successful"
+
+    title should be   Samsung | Alza.sk
+    Log     Search was successful
 
     Close Browser
 
