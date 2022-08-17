@@ -10,7 +10,7 @@ ${category}    Notebooky
 Go to store
     Open Browser    ${url}    ${browser}
     Click Element   xpath=//a[normalize-space()="Rozumiem"]
-    #maximize browser window
+    maximize browser window
 
 Cart Keyword 1
     Log  Payment is available
